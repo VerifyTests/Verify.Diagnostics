@@ -1,0 +1,10 @@
+{
+  target: result,
+  activity: {
+    AllowedOperation: {
+      Tags: {
+        allowed: true
+      }
+    }
+  }
+}
