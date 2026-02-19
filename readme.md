@@ -48,7 +48,6 @@ public Task Usage()
 {
     Recording.Start();
     using var source = new ActivitySource("TestSource");
-    RecordingActivityListener.Start();
 
     using (var activity = source.StartActivity("MyOperation"))
     {
@@ -56,11 +55,10 @@ public Task Usage()
         activity.SetTag("key2", 42);
     }
 
-    RecordingActivityListener.Stop();
     return Verify("result");
 }
 ```
-<sup><a href='/src/Tests/Tests.cs#L5-L24' title='Snippet source file'>snippet source</a> | <a href='#snippet-Usage' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L3-L20' title='Snippet source file'>snippet source</a> | <a href='#snippet-Usage' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Results in:
@@ -82,15 +80,6 @@ Results in:
 ```
 <sup><a href='/src/Tests/Tests.Usage.verified.txt#L1-L11' title='Snippet source file'>snippet source</a> | <a href='#snippet-Tests.Usage.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
-
-
-### Source Filtering
-
-A filter can be passed to `RecordingActivityListener.Start()` to only capture activities from specific sources:
-
-```cs
-RecordingActivityListener.Start(source => source.Name == "AllowedSource");
-```
 
 
 ### Serialization

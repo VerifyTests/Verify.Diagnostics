@@ -1,5 +1,3 @@
-using VerifyTests.OpenTelemetry;
-
 public class Tests
 {
     #region Usage
@@ -9,7 +7,6 @@ public class Tests
     {
         Recording.Start();
         using var source = new ActivitySource("TestSource");
-        RecordingActivityListener.Start();
 
         using (var activity = source.StartActivity("MyOperation"))
         {
@@ -17,7 +14,6 @@ public class Tests
             activity.SetTag("key2", 42);
         }
 
-        RecordingActivityListener.Stop();
         return Verify("result");
     }
 
@@ -28,7 +24,6 @@ public class Tests
     {
         Recording.Start();
         using var source = new ActivitySource("TestSource.Events");
-        RecordingActivityListener.Start();
 
         using (var activity = source.StartActivity("OperationWithEvents"))
         {
@@ -42,7 +37,6 @@ public class Tests
                 }));
         }
 
-        RecordingActivityListener.Stop();
         return Verify("result");
     }
 
@@ -51,14 +45,12 @@ public class Tests
     {
         Recording.Start();
         using var source = new ActivitySource("TestSource.Status");
-        RecordingActivityListener.Start();
 
         using (var activity = source.StartActivity("OperationWithStatus"))
         {
             activity!.SetStatus(ActivityStatusCode.Error, "Something went wrong");
         }
 
-        RecordingActivityListener.Stop();
         return Verify("result");
     }
 
@@ -67,14 +59,12 @@ public class Tests
     {
         Recording.Start();
         using var source = new ActivitySource("TestSource.Kinds");
-        RecordingActivityListener.Start();
 
         using (var activity = source.StartActivity("ServerOperation", ActivityKind.Server))
         {
             activity!.SetTag("http.method", "GET");
         }
 
-        RecordingActivityListener.Stop();
         return Verify("result");
     }
 
@@ -83,7 +73,6 @@ public class Tests
     {
         Recording.Start();
         using var source = new ActivitySource("TestSource.Links");
-        RecordingActivityListener.Start();
 
         var linkedContext = new ActivityContext(
             ActivityTraceId.CreateRandom(),
@@ -99,7 +88,6 @@ public class Tests
         {
         }
 
-        RecordingActivityListener.Stop();
         return Verify("result");
     }
 
@@ -108,7 +96,6 @@ public class Tests
     {
         Recording.Start();
         using var source = new ActivitySource("TestSource.Baggage");
-        RecordingActivityListener.Start();
 
         using (var activity = source.StartActivity("OperationWithBaggage"))
         {
@@ -116,7 +103,6 @@ public class Tests
             activity.AddBaggage("baggage2", "value2");
         }
 
-        RecordingActivityListener.Stop();
         return Verify("result");
     }
 
@@ -125,32 +111,9 @@ public class Tests
     {
         Recording.Start();
         using var source = new ActivitySource("TestSource.Empty");
-        RecordingActivityListener.Start();
 
         // No activities created
 
-        RecordingActivityListener.Stop();
-        return Verify("result");
-    }
-
-    [Fact]
-    public Task SourceFilter()
-    {
-        Recording.Start();
-        using var source1 = new ActivitySource("AllowedSource");
-        using var source2 = new ActivitySource("BlockedSource");
-        RecordingActivityListener.Start(s => s.Name == "AllowedSource");
-
-        using (var activity = source1.StartActivity("AllowedOperation"))
-        {
-            activity!.SetTag("allowed", true);
-        }
-
-        using (source2.StartActivity("BlockedOperation"))
-        {
-        }
-
-        RecordingActivityListener.Stop();
         return Verify("result");
     }
 }

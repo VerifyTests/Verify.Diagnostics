@@ -1,5 +1,3 @@
-namespace VerifyTests.OpenTelemetry;
-
 class ActivityContextConverter :
     WriteOnlyJsonConverter<ActivityContext>
 {
