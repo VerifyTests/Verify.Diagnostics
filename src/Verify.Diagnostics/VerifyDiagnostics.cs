@@ -1,3 +1,5 @@
+using Argon;
+
 namespace VerifyTests;
 
 public static class VerifyDiagnostics
@@ -24,14 +26,14 @@ public static class VerifyDiagnostics
             ActivityStopped = activity => Recording.TryAdd("activity", activity)
         };
 
+        JsonConverter[] converters = [
+            new ActivityConverter(),
+            new ActivityEventConverter(),
+            new ActivityLinkConverter(),
+            new ActivityContextConverter()
+        ];
         ActivitySource.AddActivityListener(listener);
-        VerifierSettings.AddExtraSettings(settings =>
-        {
-            var converters = settings.Converters;
-            converters.Add(new ActivityConverter());
-            converters.Add(new ActivityEventConverter());
-            converters.Add(new ActivityLinkConverter());
-            converters.Add(new ActivityContextConverter());
-        });
+        VerifierSettings.AddExtraSettings(
+            _ => _.Converters.AddRange(converters));
     }
 }
