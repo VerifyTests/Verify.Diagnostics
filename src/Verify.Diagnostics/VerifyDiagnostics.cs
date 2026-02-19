@@ -1,6 +1,6 @@
 namespace VerifyTests;
 
-public static class VerifyOpenTelemetry
+public static class VerifyDiagnostics
 {
     static ActivityListener? listener;
     public static bool Initialized { get; private set; }

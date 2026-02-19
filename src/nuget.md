@@ -1,6 +1,6 @@
 [Documentation](https://github.com/VerifyTests/Verify.OpenTelemetry)
 
-Extends [Verify](https://github.com/VerifyTests/Verify) to allow verification of OpenTelemetry Activity (traces/spans) data.<!-- singleLineInclude: intro. path: /docs/intro.include.md -->
+Extends [Verify](https://github.com/VerifyTests/Verify) to allow verification of [System.Diagnostics.Activity](https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.activity)<!-- singleLineInclude: intro. path: /docs/intro.include.md -->
 
 **See [Milestones](https://github.com/VerifyTests/Verify.OpenTelemetry/milestones?state=closed) for release notes.**
 
@@ -10,6 +10,6 @@ Extends [Verify](https://github.com/VerifyTests/Verify) to allow verification of
 
 ### Entity Framework Extensions<!-- include: zzz. path: /docs/zzz.include.md -->
 
-[Entity Framework Extensions](https://entityframework-extensions.net/?utm_source=simoncropp&utm_medium=Verify.OpenTelemetry) is a major sponsor and is proud to contribute to the development this project.
+[Entity Framework Extensions](https://entityframework-extensions.net/?utm_source=simoncropp&utm_medium=Verify.Diagnostics) is a major sponsor and is proud to contribute to the development this project.
 
-[![Entity Framework Extensions](https://raw.githubusercontent.com/VerifyTests/Verify.OpenTelemetry/refs/heads/main/docs/zzz.png)](https://entityframework-extensions.net/?utm_source=simoncropp&utm_medium=Verify.OpenTelemetry)<!-- endInclude -->
+[![Entity Framework Extensions](https://raw.githubusercontent.com/VerifyTests/Verify.Diagnostics/refs/heads/main/docs/zzz.png)](https://entityframework-extensions.net/?utm_source=simoncropp&utm_medium=Verify.Diagnostics)<!-- endInclude -->

@@ -14,5 +14,5 @@
     <File Path="nuget.md" />
   </Folder>
   <Project Path="Tests/Tests.csproj" />
-  <Project Path="Verify.OpenTelemetry/Verify.OpenTelemetry.csproj" />
+  <Project Path="Verify.Diagnostics/Verify.Diagnostics.csproj" />
 </Solution>

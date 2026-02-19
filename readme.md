@@ -1,10 +1,10 @@
-# <img src="/src/icon.png" height="30px"> Verify.OpenTelemetry
+# <img src="/src/icon.png" height="30px"> Verify.Diagnostics
 
 [![Discussions](https://img.shields.io/badge/Verify-Discussions-yellow?svg=true&label=)](https://github.com/orgs/VerifyTests/discussions)
-[![Build status](https://img.shields.io/appveyor/build/SimonCropp/verify-opentelemetry)](https://ci.appveyor.com/project/SimonCropp/verify-opentelemetry)
-[![NuGet Status](https://img.shields.io/nuget/v/Verify.OpenTelemetry.svg)](https://www.nuget.org/packages/Verify.OpenTelemetry/)
+[![Build status](https://img.shields.io/appveyor/build/SimonCropp/verify-diagnostics)](https://ci.appveyor.com/project/SimonCropp/verify-diagnostics)
+[![NuGet Status](https://img.shields.io/nuget/v/Verify.Diagnostics.svg)](https://www.nuget.org/packages/Verify.Diagnostics/)
 
-Extends [Verify](https://github.com/VerifyTests/Verify) to allow verification of OpenTelemetry Activity (traces/spans) data.<!-- singleLineInclude: intro. path: /docs/intro.include.md -->
+Extends [Verify](https://github.com/VerifyTests/Verify) to allow verification of [System.Diagnostics.Activity](https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.activity)<!-- singleLineInclude: intro. path: /docs/intro.include.md -->
 
 **See [Milestones](../../milestones?state=closed) for release notes.**
 
@@ -14,14 +14,14 @@ Extends [Verify](https://github.com/VerifyTests/Verify) to allow verification of
 
 ### Entity Framework Extensions<!-- include: zzz. path: /docs/zzz.include.md -->
 
-[Entity Framework Extensions](https://entityframework-extensions.net/?utm_source=simoncropp&utm_medium=Verify.OpenTelemetry) is a major sponsor and is proud to contribute to the development this project.
+[Entity Framework Extensions](https://entityframework-extensions.net/?utm_source=simoncropp&utm_medium=Verify.Diagnostics) is a major sponsor and is proud to contribute to the development this project.
 
-[![Entity Framework Extensions](https://raw.githubusercontent.com/VerifyTests/Verify.OpenTelemetry/refs/heads/main/docs/zzz.png)](https://entityframework-extensions.net/?utm_source=simoncropp&utm_medium=Verify.OpenTelemetry)<!-- endInclude -->
+[![Entity Framework Extensions](https://raw.githubusercontent.com/VerifyTests/Verify.Diagnostics/refs/heads/main/docs/zzz.png)](https://entityframework-extensions.net/?utm_source=simoncropp&utm_medium=Verify.Diagnostics)<!-- endInclude -->
 
 
 ## NuGet
 
- * https://nuget.org/packages/Verify.OpenTelemetry
+ * https://nuget.org/packages/Verify.Diagnostics
 
 
 ## Usage
@@ -31,7 +31,7 @@ Extends [Verify](https://github.com/VerifyTests/Verify) to allow verification of
 ```cs
 [ModuleInitializer]
 public static void Initialize() =>
-    VerifyOpenTelemetry.Initialize();
+    VerifyDiagnostics.Initialize();
 ```
 <sup><a href='/src/Tests/ModuleInitializer.cs#L3-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-Enable' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
@@ -92,3 +92,8 @@ Activities are serialized with the following conventions:
  * `Status` and `StatusDescription` only included if not `Unset`
  * `Tags`, `Events`, `Links`, and `Baggage` included when present
  * Non-deterministic values (`Id`, `TraceId`, `SpanId`, `ParentSpanId`, `Duration`, `StartTimeUtc`, `Source`) are omitted
+
+
+## Icon
+
+[Diagnostic](https://thenounproject.com/icon/diagnostic-8246832/) from [The Noun Project](https://thenounproject.com).

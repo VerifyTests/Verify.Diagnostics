@@ -1,1 +1,1 @@
-Extends [Verify](https://github.com/VerifyTests/Verify) to allow verification of OpenTelemetry Activity (traces/spans) data.
+Extends [Verify](https://github.com/VerifyTests/Verify) to allow verification of [System.Diagnostics.Activity](https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.activity)

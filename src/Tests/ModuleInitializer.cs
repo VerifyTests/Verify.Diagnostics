@@ -4,7 +4,7 @@ public static class ModuleInitializer
 
     [ModuleInitializer]
     public static void Initialize() =>
-        VerifyOpenTelemetry.Initialize();
+        VerifyDiagnostics.Initialize();
 
     #endregion
 

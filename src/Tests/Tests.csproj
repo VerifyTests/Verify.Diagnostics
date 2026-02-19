@@ -17,7 +17,7 @@
     <PackageReference Include="Verify" />
     <PackageReference Include="Verify.DiffPlex" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" />
-    <ProjectReference Include="..\Verify.OpenTelemetry\Verify.OpenTelemetry.csproj" />
+    <ProjectReference Include="..\Verify.Diagnostics\Verify.Diagnostics.csproj" />
     <PackageReference Include="ProjectDefaults" PrivateAssets="all" />
   </ItemGroup>
 </Project>
